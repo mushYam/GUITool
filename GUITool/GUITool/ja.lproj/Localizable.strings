@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings(Japanese)
+  GUITool
+
+  Created by yamagishi kensuke on 11/28/16.
+  Copyright © 2016 kensuke yamagishi. All rights reserved.
+*/
+
+"defaultText" = "貪欲であれ バカであれ";
+"defaultTextColor" = "555555";
+"defaultFontSize" = "15";
+"defaultFont" = "HelveticaNeue";
+"defaultBackgroundColor" = "ffffff";
+
+"text" = "テキスト";
+"textColor" = "テキストカラー";
+"fontSize" = "フォントサイズ";
+"font" = "フォント";
+"wallColor" = "ウォールカラー";
+
+"done" = "完了";
+"cancel" = "取り消し";
+
+"firstTabTitle" = "フォント";
+"secondTabTitle" = "パーツ";

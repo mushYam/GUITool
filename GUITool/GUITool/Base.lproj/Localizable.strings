@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  GUITool
+
+  Created by yamagishi kensuke on 11/28/16.
+  Copyright © 2016 kensuke yamagishi. All rights reserved.
+*/
+
+
+"defaultText" = "stay hungry stay hulish";
+"defaultTextColor" = "555555";
+"defaultFontSize" = "15";
+"defaultFont" = "HelveticaNeue";
+"defaultBackgroundColor" = "ffffff";
+
+"text" = "text";
+"textColor" = "textColor";
+"fontSize" = "fontSize";
+"font" = "font";
+"wallColor" = "wallColor";
+
+"done" = "done";
+"cancel" = "cancel";
+
+"firstTabTitle" = "font";
+"secondTabTitle" = "parts";
+
+

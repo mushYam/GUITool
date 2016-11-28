@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2806EAE21DEAE00E00F0E435 /* FontUpgrade.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2806EAE11DEAE00E00F0E435 /* FontUpgrade.storyboard */; };
+		2806EAE41DEAE05400F0E435 /* FontUpgradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2806EAE31DEAE05400F0E435 /* FontUpgradeViewController.swift */; };
+		2806EAE61DEAE3C300F0E435 /* FontControl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2806EAE51DEAE3C300F0E435 /* FontControl.storyboard */; };
+		2806EAE81DEAE3DF00F0E435 /* FontControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2806EAE71DEAE3DF00F0E435 /* FontControlViewController.swift */; };
+		286839711DEBD5170004B356 /* PartsControllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286839701DEBD5170004B356 /* PartsControllViewController.swift */; };
+		286839731DEBD52E0004B356 /* PartsControll.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 286839721DEBD52E0004B356 /* PartsControll.storyboard */; };
 		286E26671DEAB0DB00D6A06A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E26661DEAB0DB00D6A06A /* AppDelegate.swift */; };
 		286E26691DEAB0DB00D6A06A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E26681DEAB0DB00D6A06A /* ViewController.swift */; };
 		286E266C1DEAB0DB00D6A06A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 286E266A1DEAB0DB00D6A06A /* Main.storyboard */; };
@@ -14,6 +20,10 @@
 		286E26711DEAB0DB00D6A06A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 286E266F1DEAB0DB00D6A06A /* LaunchScreen.storyboard */; };
 		286E267C1DEAB0DC00D6A06A /* GUIToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E267B1DEAB0DC00D6A06A /* GUIToolTests.swift */; };
 		286E26871DEAB0DC00D6A06A /* GUIToolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E26861DEAB0DC00D6A06A /* GUIToolUITests.swift */; };
+		286E26951DEAC2CC00D6A06A /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E26941DEAC2CC00D6A06A /* RootViewController.swift */; };
+		286E26991DEAC71F00D6A06A /* UpgradeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E26981DEAC71F00D6A06A /* UpgradeButtonView.swift */; };
+		28D3401B1DEC47BC00CD5AE7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28D3401D1DEC47BC00CD5AE7 /* Localizable.strings */; };
+		DCBD0245B17A96A2701DA891 /* Pods_GUITool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D45072EE21DE62056F2AB98E /* Pods_GUITool.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +44,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0334F54AD5B7365A0F3921BF /* Pods_GUIToolUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GUIToolUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2806EAE11DEAE00E00F0E435 /* FontUpgrade.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FontUpgrade.storyboard; sourceTree = "<group>"; };
+		2806EAE31DEAE05400F0E435 /* FontUpgradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontUpgradeViewController.swift; sourceTree = "<group>"; };
+		2806EAE51DEAE3C300F0E435 /* FontControl.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FontControl.storyboard; sourceTree = "<group>"; };
+		2806EAE71DEAE3DF00F0E435 /* FontControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontControlViewController.swift; sourceTree = "<group>"; };
+		286839701DEBD5170004B356 /* PartsControllViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartsControllViewController.swift; sourceTree = "<group>"; };
+		286839721DEBD52E0004B356 /* PartsControll.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PartsControll.storyboard; sourceTree = "<group>"; };
 		286E26631DEAB0DB00D6A06A /* GUITool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GUITool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		286E26661DEAB0DB00D6A06A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		286E26681DEAB0DB00D6A06A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +64,14 @@
 		286E26821DEAB0DC00D6A06A /* GUIToolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GUIToolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		286E26861DEAB0DC00D6A06A /* GUIToolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUIToolUITests.swift; sourceTree = "<group>"; };
 		286E26881DEAB0DC00D6A06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		286E26941DEAC2CC00D6A06A /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		286E26981DEAC71F00D6A06A /* UpgradeButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeButtonView.swift; sourceTree = "<group>"; };
+		28D3401C1DEC47BC00CD5AE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		28D3401E1DEC47F700CD5AE7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		45E93AD470D6435EBF97CFD2 /* Pods-GUITool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GUITool.release.xcconfig"; path = "Pods/Target Support Files/Pods-GUITool/Pods-GUITool.release.xcconfig"; sourceTree = "<group>"; };
+		8235DD6DA48EA255736B2FB1 /* Pods_GUIToolTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GUIToolTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D45072EE21DE62056F2AB98E /* Pods_GUITool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GUITool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF0B0451BFA907A49D3047EE /* Pods-GUITool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GUITool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GUITool/Pods-GUITool.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCBD0245B17A96A2701DA891 /* Pods_GUITool.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +107,8 @@
 				286E267A1DEAB0DC00D6A06A /* GUIToolTests */,
 				286E26851DEAB0DC00D6A06A /* GUIToolUITests */,
 				286E26641DEAB0DB00D6A06A /* Products */,
+				2E58A3FE5B5EE09176ADEC28 /* Pods */,
+				2D877FC4C29C81EA55080E6E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,11 +125,20 @@
 		286E26651DEAB0DB00D6A06A /* GUITool */ = {
 			isa = PBXGroup;
 			children = (
-				286E26661DEAB0DB00D6A06A /* AppDelegate.swift */,
+				286E26941DEAC2CC00D6A06A /* RootViewController.swift */,
+				286E26981DEAC71F00D6A06A /* UpgradeButtonView.swift */,
 				286E26681DEAB0DB00D6A06A /* ViewController.swift */,
 				286E266A1DEAB0DB00D6A06A /* Main.storyboard */,
+				286839701DEBD5170004B356 /* PartsControllViewController.swift */,
+				286839721DEBD52E0004B356 /* PartsControll.storyboard */,
+				2806EAE71DEAE3DF00F0E435 /* FontControlViewController.swift */,
+				2806EAE51DEAE3C300F0E435 /* FontControl.storyboard */,
+				2806EAE31DEAE05400F0E435 /* FontUpgradeViewController.swift */,
+				2806EAE11DEAE00E00F0E435 /* FontUpgrade.storyboard */,
+				286E26661DEAB0DB00D6A06A /* AppDelegate.swift */,
 				286E266D1DEAB0DB00D6A06A /* Assets.xcassets */,
 				286E266F1DEAB0DB00D6A06A /* LaunchScreen.storyboard */,
+				28D3401D1DEC47BC00CD5AE7 /* Localizable.strings */,
 				286E26721DEAB0DB00D6A06A /* Info.plist */,
 			);
 			path = GUITool;
@@ -125,6 +162,25 @@
 			path = GUIToolUITests;
 			sourceTree = "<group>";
 		};
+		2D877FC4C29C81EA55080E6E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D45072EE21DE62056F2AB98E /* Pods_GUITool.framework */,
+				8235DD6DA48EA255736B2FB1 /* Pods_GUIToolTests.framework */,
+				0334F54AD5B7365A0F3921BF /* Pods_GUIToolUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2E58A3FE5B5EE09176ADEC28 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DF0B0451BFA907A49D3047EE /* Pods-GUITool.debug.xcconfig */,
+				45E93AD470D6435EBF97CFD2 /* Pods-GUITool.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +188,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 286E268B1DEAB0DC00D6A06A /* Build configuration list for PBXNativeTarget "GUITool" */;
 			buildPhases = (
+				169B159E094935B955F104EB /* [CP] Check Pods Manifest.lock */,
 				286E265F1DEAB0DA00D6A06A /* Sources */,
 				286E26601DEAB0DA00D6A06A /* Frameworks */,
 				286E26611DEAB0DA00D6A06A /* Resources */,
+				9F5BB670F9D2834403C775F2 /* [CP] Embed Pods Frameworks */,
+				2705290D2469578C571C3C96 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -217,6 +276,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 286E265A1DEAB0DA00D6A06A;
 			productRefGroup = 286E26641DEAB0DB00D6A06A /* Products */;
@@ -235,7 +295,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				286839731DEBD52E0004B356 /* PartsControll.storyboard in Resources */,
+				2806EAE21DEAE00E00F0E435 /* FontUpgrade.storyboard in Resources */,
 				286E26711DEAB0DB00D6A06A /* LaunchScreen.storyboard in Resources */,
+				28D3401B1DEC47BC00CD5AE7 /* Localizable.strings in Resources */,
+				2806EAE61DEAE3C300F0E435 /* FontControl.storyboard in Resources */,
 				286E266E1DEAB0DB00D6A06A /* Assets.xcassets in Resources */,
 				286E266C1DEAB0DB00D6A06A /* Main.storyboard in Resources */,
 			);
@@ -257,13 +321,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		169B159E094935B955F104EB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2705290D2469578C571C3C96 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GUITool/Pods-GUITool-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F5BB670F9D2834403C775F2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GUITool/Pods-GUITool-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		286E265F1DEAB0DA00D6A06A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				286839711DEBD5170004B356 /* PartsControllViewController.swift in Sources */,
 				286E26691DEAB0DB00D6A06A /* ViewController.swift in Sources */,
+				2806EAE41DEAE05400F0E435 /* FontUpgradeViewController.swift in Sources */,
+				286E26991DEAC71F00D6A06A /* UpgradeButtonView.swift in Sources */,
+				2806EAE81DEAE3DF00F0E435 /* FontControlViewController.swift in Sources */,
 				286E26671DEAB0DB00D6A06A /* AppDelegate.swift in Sources */,
+				286E26951DEAC2CC00D6A06A /* RootViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +432,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		28D3401D1DEC47BC00CD5AE7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28D3401C1DEC47BC00CD5AE7 /* Base */,
+				28D3401E1DEC47F700CD5AE7 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -322,6 +448,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -372,6 +499,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -413,6 +541,7 @@
 		};
 		286E268C1DEAB0DC00D6A06A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF0B0451BFA907A49D3047EE /* Pods-GUITool.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 89798REB37;
@@ -426,6 +555,7 @@
 		};
 		286E268D1DEAB0DC00D6A06A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45E93AD470D6435EBF97CFD2 /* Pods-GUITool.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 89798REB37;
@@ -514,6 +644,7 @@
 				286E268D1DEAB0DC00D6A06A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		286E268E1DEAB0DC00D6A06A /* Build configuration list for PBXNativeTarget "GUIToolTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +653,7 @@
 				286E26901DEAB0DC00D6A06A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		286E26911DEAB0DC00D6A06A /* Build configuration list for PBXNativeTarget "GUIToolUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +662,7 @@
 				286E26931DEAB0DC00D6A06A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
