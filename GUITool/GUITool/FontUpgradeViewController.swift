@@ -9,7 +9,7 @@
 import UIKit
 
 protocol FontModalDelegate{
-    func fontModalFinished(text: String,textColor :String,fontSize :String,font :String, backGroundColor :String)
+    func fontModalFinished(text: String,textColor :String,fontSize :String,font :String, backGroundColor :String, fontKind :String)
 }
 
 class FontUpgradeViewController: UIViewController,UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate {
@@ -28,6 +28,9 @@ class FontUpgradeViewController: UIViewController,UITextFieldDelegate,UIPickerVi
     @IBOutlet weak var fontField: UITextField!
     @IBOutlet weak var backgroundColorField: UITextField!
     
+    
+    @IBOutlet weak var fontKindTextField: UITextField!
+    
     var textValue: String!
     var textColorValue: String!
     var fontSizeValue: String!
@@ -40,7 +43,13 @@ class FontUpgradeViewController: UIViewController,UITextFieldDelegate,UIPickerVi
     var fontArray = [String]()
     let fontPickerView = UIPickerView()
     var fontMatchNum = -1
-
+    
+    var fontKindArray = [String]()
+    let fontKindPickerView = UIPickerView()
+    var fontKindValue: String!
+    
+    let toolBar = UIToolbar()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,15 +66,17 @@ class FontUpgradeViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         self.fontSizeField.delegate = self
         self.fontSizePickerView.delegate = self
         self.fontSizePickerView.dataSource = self
-        self.fontSizeField.inputView = self.fontSizePickerView
         
         self.fontField.delegate = self
         self.fontPickerView.delegate = self
         self.fontPickerView.dataSource = self
-        
-        self.fontField.inputView = self.fontPickerView
-        
+       
         self.backgroundColorField.delegate = self
+        
+        self.fontKindTextField.delegate = self
+        self.fontKindPickerView.delegate = self
+        self.fontKindPickerView.dataSource = self
+        
     }
     
     func setData() {
@@ -88,6 +99,10 @@ class FontUpgradeViewController: UIViewController,UITextFieldDelegate,UIPickerVi
                 }
             })
         }
+        
+        self.fontKindArray = [NSLocalizedString("select", comment: ""),NSLocalizedString("input", comment: "")]
+        self.fontKindPickerView.selectRow(0, inComponent: 0, animated: false)
+        
     }
     
     func setValue() {
@@ -98,6 +113,8 @@ class FontUpgradeViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         self.fontField.text = fontValue as String!
         self.backgroundColorField.text = backgroundColorValue as String!
         self.backgroundColorField.keyboardType = UIKeyboardType.asciiCapable
+        
+        self.fontKindTextField.text = fontKindValue as String!
     }
     
     func setLayout() {
@@ -107,7 +124,7 @@ class FontUpgradeViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         self.font.text = NSLocalizedString("font", comment: "")
         self.backgroundColor.text = NSLocalizedString("wallColor", comment: "")
         
-        let toolBar = UIToolbar()
+        
         toolBar.barStyle = UIBarStyle.default
         toolBar.isTranslucent = true
         toolBar.tintColor = UIColor.black
@@ -120,13 +137,34 @@ class FontUpgradeViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         
         textField.inputAccessoryView = toolBar
         textColorField.inputAccessoryView = toolBar
+        fontSizeField.inputView = fontSizePickerView
         fontSizeField.inputAccessoryView = toolBar
+        fontSizeField.tintColor = UIColor.clear
+        self.updateInputView()
         fontField.inputAccessoryView = toolBar
         backgroundColorField.inputAccessoryView = toolBar
+        fontKindTextField.inputView = fontKindPickerView
+        fontKindTextField.inputAccessoryView = toolBar
+        fontKindTextField.tintColor = UIColor.clear
+        
+        
+    }
+    
+    func updateInputView() {
+        if fontKindValue == NSLocalizedString("select", comment: "") {
+            fontField.inputView = fontPickerView
+            fontField.tintColor = UIColor.clear
+        } else {
+            fontField.inputView = .none
+//            fontField.keyboardType = UIKeyboardType.asciiCapable
+            //            fontField.inputView = nil
+            //            fontField.tintColor =
+        }
     }
     
     func donePressed() {
         view.endEditing(true)
+        self.setNewValue()
     }
     
     func cancelPressed() {
@@ -136,14 +174,27 @@ class FontUpgradeViewController: UIViewController,UITextFieldDelegate,UIPickerVi
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        
+        self.setNewValue()
+        return true
+    }
+    
+    func setNewValue() {
         textValue = self.textField.text as String!
         textColorValue = self.textColorField.text as String!
         fontSizeValue = self.fontSizeField.text as String!
-        fontValue = self.fontField.text as String!
-        backgroundColorValue = self.backgroundColorField.text as String!
         
-        return true
+        for (index, _) in fontArray.enumerated() {
+            if fontArray[index] == self.fontField.text {
+                
+                fontValue = self.fontField.text as String!
+            } else {
+                self.fontField.text = fontValue
+            }
+        }
+        backgroundColorValue = self.backgroundColorField.text as String!
+        fontKindValue = self.fontKindTextField.text as String!
+        
+        self.updateInputView()
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -154,8 +205,10 @@ class FontUpgradeViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         
         if pickerView == fontSizePickerView {
              return fontSizeArray.count
-        } else {
+        } else if pickerView == fontPickerView {
              return fontArray.count
+        } else {
+            return fontKindArray.count
         }
     }
     
@@ -163,8 +216,10 @@ class FontUpgradeViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         
         if pickerView == fontSizePickerView {
             return fontSizeArray[row]
-        } else {
+        } else if pickerView == fontPickerView {
             return fontArray[row]
+        } else {
+            return fontKindArray[row]
         }
 
     }
@@ -173,8 +228,10 @@ class FontUpgradeViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         
         if pickerView == fontSizePickerView {
             fontSizeField.text = fontSizeArray[row]
-        } else {
+        } else if pickerView == fontPickerView {
             fontField.text = fontArray[row]
+        } else {
+            fontKindTextField.text = fontKindArray[row]
         }
     }
     
@@ -189,7 +246,7 @@ class FontUpgradeViewController: UIViewController,UITextFieldDelegate,UIPickerVi
     
     @IBAction func tapClose(_ sender: AnyObject) {
         dismiss(animated: true, completion:{
-            self.delegate.fontModalFinished(text: self.textField.text!,textColor :self.textColorField.text!,fontSize :self.fontSizeField.text!,font :self.fontField.text!, backGroundColor :self.backgroundColorField.text!)
+            self.delegate.fontModalFinished(text: self.textField.text!,textColor :self.textColorField.text!,fontSize :self.fontSizeField.text!,font :self.fontField.text!, backGroundColor :self.backgroundColorField.text!, fontKind :self.fontKindTextField.text!)
             })
     }
 

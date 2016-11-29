@@ -36,6 +36,23 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
         var itemsOptions: [MenuItemViewCustomizable] {
             return [MenuItem1(), MenuItem2()]
         }
+        
+//        var backgroundColor: UIColor {
+//            return UIColor.darkGray
+//        }
+//
+//        var selectedBackgroundColor: UIColor {
+//            return UIColor.white
+//        }
+        
+        var focusMode: MenuFocusMode {
+            return .roundRect(radius: 5, horizontalPadding: 30, verticalPadding: 5, selectedColor: UIColor.darkGray)
+        }
+        
+        var height: CGFloat {
+            return 40
+        }
+        
     }
     
     fileprivate struct MenuItem1: MenuItemViewCustomizable {

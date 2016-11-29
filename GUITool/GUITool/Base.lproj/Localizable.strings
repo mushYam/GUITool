@@ -19,8 +19,24 @@
 "font" = "font";
 "wallColor" = "wallColor";
 
+"genre" = "genre";
+"scheme" = "scheme";
+
+"genreOne" = "color";
+"genreTwo" = "font";
+
+"schemeOne" = "web safe color";
+"schemeTwo" = "flat color";
+"schemeThree" = "material color";
+"schemeFour" = "japanese traditional color";
+
+"select" = "select";
+"input" = "input";
+
 "done" = "done";
 "cancel" = "cancel";
+
+"copy" = "copied!";
 
 "firstTabTitle" = "font";
 "secondTabTitle" = "parts";

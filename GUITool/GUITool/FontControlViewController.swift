@@ -18,6 +18,7 @@ class FontControlViewController: UIViewController,FontModalDelegate {
     var orgFontSizeValue: String!
     var orgFontValue: String!
     var orgBackgroundColorValue: String!
+    var orgFontKindValue: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,7 @@ class FontControlViewController: UIViewController,FontModalDelegate {
         self.orgFontSizeValue = NSLocalizedString("defaultFontSize", comment: "")
         self.orgFontValue = NSLocalizedString("defaultFont", comment: "")
         self.orgBackgroundColorValue = NSLocalizedString("defaultBackgroundColor", comment: "")
+        self.orgFontKindValue = NSLocalizedString("select", comment: "")
         
         self.changeStatus()
     }
@@ -48,6 +50,7 @@ class FontControlViewController: UIViewController,FontModalDelegate {
         nextView.fontSizeValue = orgFontSizeValue
         nextView.fontValue = orgFontValue
         nextView.backgroundColorValue = orgBackgroundColorValue
+        nextView.fontKindValue = orgFontKindValue
         
         nextView.delegate = self
         nextView.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
@@ -55,22 +58,23 @@ class FontControlViewController: UIViewController,FontModalDelegate {
         self.present(nextView, animated: true, completion: nil)
     }
     
-    func fontModalFinished(text: String,textColor :String,fontSize :String,font :String, backGroundColor :String){
+    func fontModalFinished(text: String,textColor :String,fontSize :String,font :String, backGroundColor :String, fontKind :String){
         
         self.orgTextValue = text as String!
         self.orgTextColorValue = textColor as String!
         self.orgFontSizeValue = fontSize as String!
         self.orgFontValue = font as String!
         self.orgBackgroundColorValue = backGroundColor as String!
+        self.orgFontKindValue = fontKind as String!
         
         self.changeStatus()
     }
     
     func changeStatus() {
         self.firstText.text = orgTextValue as String?
-        self.firstText.textColor = UIColor.hex(hexStr:orgTextColorValue as String, alpha:1);
+        self.firstText.textColor = UIColor.hex(hexStr:orgTextColorValue as String, alpha:1)
         self.firstText.font = UIFont(name: orgFontValue as String,size: CGFloat((orgFontSizeValue as NSString).floatValue))
-        self.view.backgroundColor = UIColor.hex(hexStr:orgBackgroundColorValue as String, alpha:1);
+        self.view.backgroundColor = UIColor.hex(hexStr:orgBackgroundColorValue as String, alpha:1)
     }
     
 }

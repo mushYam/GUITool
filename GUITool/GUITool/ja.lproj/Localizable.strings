@@ -18,8 +18,24 @@
 "font" = "フォント";
 "wallColor" = "ウォールカラー";
 
+"genre" = "ジャンル";
+"scheme" = "テーマ";
+
+"genreOne" = "カラー";
+"genreTwo" = "フォント";
+
+"schemeOne" = "ウェブセーフカラー";
+"schemeTwo" = "フラットカラー";
+"schemeThree" = "マテリアルカラー";
+"schemeFour" = "日本の伝統色";
+
+"select" = "選択";
+"input" = "入力";
+
 "done" = "完了";
 "cancel" = "取り消し";
+
+"copy" = "コピー!";
 
 "firstTabTitle" = "フォント";
 "secondTabTitle" = "パーツ";

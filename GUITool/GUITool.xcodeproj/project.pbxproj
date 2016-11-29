@@ -11,6 +11,9 @@
 		2806EAE41DEAE05400F0E435 /* FontUpgradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2806EAE31DEAE05400F0E435 /* FontUpgradeViewController.swift */; };
 		2806EAE61DEAE3C300F0E435 /* FontControl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2806EAE51DEAE3C300F0E435 /* FontControl.storyboard */; };
 		2806EAE81DEAE3DF00F0E435 /* FontControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2806EAE71DEAE3DF00F0E435 /* FontControlViewController.swift */; };
+		282369B91DED8D7A00D8A64D /* WebSafeColor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 282369B81DED8D7A00D8A64D /* WebSafeColor.plist */; };
+		282369BB1DED8DF400D8A64D /* MaterialColor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 282369BA1DED8DF400D8A64D /* MaterialColor.plist */; };
+		282369BD1DED8E0E00D8A64D /* JaTraditionalColor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 282369BC1DED8E0E00D8A64D /* JaTraditionalColor.plist */; };
 		286839711DEBD5170004B356 /* PartsControllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286839701DEBD5170004B356 /* PartsControllViewController.swift */; };
 		286839731DEBD52E0004B356 /* PartsControll.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 286839721DEBD52E0004B356 /* PartsControll.storyboard */; };
 		286E26671DEAB0DB00D6A06A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E26661DEAB0DB00D6A06A /* AppDelegate.swift */; };
@@ -22,7 +25,10 @@
 		286E26871DEAB0DC00D6A06A /* GUIToolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E26861DEAB0DC00D6A06A /* GUIToolUITests.swift */; };
 		286E26951DEAC2CC00D6A06A /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E26941DEAC2CC00D6A06A /* RootViewController.swift */; };
 		286E26991DEAC71F00D6A06A /* UpgradeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E26981DEAC71F00D6A06A /* UpgradeButtonView.swift */; };
+		28A952201DED4B3600611966 /* FlatColor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28A9521F1DED4B3600611966 /* FlatColor.plist */; };
 		28D3401B1DEC47BC00CD5AE7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28D3401D1DEC47BC00CD5AE7 /* Localizable.strings */; };
+		28F13BF71DEC6A2500547E66 /* PartsUpgradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F13BF61DEC6A2500547E66 /* PartsUpgradeViewController.swift */; };
+		28F13BF91DEC6A3E00547E66 /* PartsUpgrade.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F13BF81DEC6A3E00547E66 /* PartsUpgrade.storyboard */; };
 		DCBD0245B17A96A2701DA891 /* Pods_GUITool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D45072EE21DE62056F2AB98E /* Pods_GUITool.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +55,9 @@
 		2806EAE31DEAE05400F0E435 /* FontUpgradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontUpgradeViewController.swift; sourceTree = "<group>"; };
 		2806EAE51DEAE3C300F0E435 /* FontControl.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FontControl.storyboard; sourceTree = "<group>"; };
 		2806EAE71DEAE3DF00F0E435 /* FontControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontControlViewController.swift; sourceTree = "<group>"; };
+		282369B81DED8D7A00D8A64D /* WebSafeColor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WebSafeColor.plist; sourceTree = "<group>"; };
+		282369BA1DED8DF400D8A64D /* MaterialColor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MaterialColor.plist; sourceTree = "<group>"; };
+		282369BC1DED8E0E00D8A64D /* JaTraditionalColor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = JaTraditionalColor.plist; sourceTree = "<group>"; };
 		286839701DEBD5170004B356 /* PartsControllViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartsControllViewController.swift; sourceTree = "<group>"; };
 		286839721DEBD52E0004B356 /* PartsControll.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PartsControll.storyboard; sourceTree = "<group>"; };
 		286E26631DEAB0DB00D6A06A /* GUITool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GUITool.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,8 +75,11 @@
 		286E26881DEAB0DC00D6A06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		286E26941DEAC2CC00D6A06A /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		286E26981DEAC71F00D6A06A /* UpgradeButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeButtonView.swift; sourceTree = "<group>"; };
+		28A9521F1DED4B3600611966 /* FlatColor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FlatColor.plist; sourceTree = "<group>"; };
 		28D3401C1DEC47BC00CD5AE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		28D3401E1DEC47F700CD5AE7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		28F13BF61DEC6A2500547E66 /* PartsUpgradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartsUpgradeViewController.swift; sourceTree = "<group>"; };
+		28F13BF81DEC6A3E00547E66 /* PartsUpgrade.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PartsUpgrade.storyboard; sourceTree = "<group>"; };
 		45E93AD470D6435EBF97CFD2 /* Pods-GUITool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GUITool.release.xcconfig"; path = "Pods/Target Support Files/Pods-GUITool/Pods-GUITool.release.xcconfig"; sourceTree = "<group>"; };
 		8235DD6DA48EA255736B2FB1 /* Pods_GUIToolTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GUIToolTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D45072EE21DE62056F2AB98E /* Pods_GUITool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GUITool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +143,8 @@
 				286E266A1DEAB0DB00D6A06A /* Main.storyboard */,
 				286839701DEBD5170004B356 /* PartsControllViewController.swift */,
 				286839721DEBD52E0004B356 /* PartsControll.storyboard */,
+				28F13BF61DEC6A2500547E66 /* PartsUpgradeViewController.swift */,
+				28F13BF81DEC6A3E00547E66 /* PartsUpgrade.storyboard */,
 				2806EAE71DEAE3DF00F0E435 /* FontControlViewController.swift */,
 				2806EAE51DEAE3C300F0E435 /* FontControl.storyboard */,
 				2806EAE31DEAE05400F0E435 /* FontUpgradeViewController.swift */,
@@ -139,6 +153,10 @@
 				286E266D1DEAB0DB00D6A06A /* Assets.xcassets */,
 				286E266F1DEAB0DB00D6A06A /* LaunchScreen.storyboard */,
 				28D3401D1DEC47BC00CD5AE7 /* Localizable.strings */,
+				28A9521F1DED4B3600611966 /* FlatColor.plist */,
+				282369B81DED8D7A00D8A64D /* WebSafeColor.plist */,
+				282369BA1DED8DF400D8A64D /* MaterialColor.plist */,
+				282369BC1DED8E0E00D8A64D /* JaTraditionalColor.plist */,
 				286E26721DEAB0DB00D6A06A /* Info.plist */,
 			);
 			path = GUITool;
@@ -295,10 +313,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				282369B91DED8D7A00D8A64D /* WebSafeColor.plist in Resources */,
+				28F13BF91DEC6A3E00547E66 /* PartsUpgrade.storyboard in Resources */,
+				28A952201DED4B3600611966 /* FlatColor.plist in Resources */,
 				286839731DEBD52E0004B356 /* PartsControll.storyboard in Resources */,
 				2806EAE21DEAE00E00F0E435 /* FontUpgrade.storyboard in Resources */,
 				286E26711DEAB0DB00D6A06A /* LaunchScreen.storyboard in Resources */,
 				28D3401B1DEC47BC00CD5AE7 /* Localizable.strings in Resources */,
+				282369BD1DED8E0E00D8A64D /* JaTraditionalColor.plist in Resources */,
+				282369BB1DED8DF400D8A64D /* MaterialColor.plist in Resources */,
 				2806EAE61DEAE3C300F0E435 /* FontControl.storyboard in Resources */,
 				286E266E1DEAB0DB00D6A06A /* Assets.xcassets in Resources */,
 				286E266C1DEAB0DB00D6A06A /* Main.storyboard in Resources */,
@@ -374,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28F13BF71DEC6A2500547E66 /* PartsUpgradeViewController.swift in Sources */,
 				286839711DEBD5170004B356 /* PartsControllViewController.swift in Sources */,
 				286E26691DEAB0DB00D6A06A /* ViewController.swift in Sources */,
 				2806EAE41DEAE05400F0E435 /* FontUpgradeViewController.swift in Sources */,
