@@ -13,11 +13,16 @@
 "defaultFont" = "HelveticaNeue";
 "defaultBackgroundColor" = "ffffff";
 
+"inputText" = "input text";
+"inputColorCode" = "input color code";
+
 "text" = "text";
 "textColor" = "textColor";
 "fontSize" = "fontSize";
 "font" = "font";
 "wallColor" = "wallColor";
+
+"fontLabel" = "what a day";
 
 "genre" = "genre";
 "scheme" = "scheme";
@@ -28,7 +33,8 @@
 "schemeOne" = "web safe color";
 "schemeTwo" = "flat color";
 "schemeThree" = "material color";
-"schemeFour" = "japanese traditional color";
+
+"fontSchemeOne" = "iOS system font";
 
 "select" = "select";
 "input" = "input";
@@ -41,4 +47,6 @@
 "firstTabTitle" = "font";
 "secondTabTitle" = "parts";
 
+"kindColor" = "color";
+"kindFont" = "font";
 

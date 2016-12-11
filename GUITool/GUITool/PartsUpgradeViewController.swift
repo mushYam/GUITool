@@ -8,167 +8,69 @@
 
 import UIKit
 
-protocol PartsModalDelegate{
-    func partsModalFinished(genre: String,scheme :String)
-}
+//protocol PartsModalDelegate{
+//    func partsModalFinished(genre: String,scheme :String)
+//}
 
-class PartsUpgradeViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource {
-
-    var delegate: PartsModalDelegate! = nil
+class PartsUpgradeViewController: UIViewController {
     
-    @IBOutlet weak var genre: UILabel!
-    @IBOutlet weak var genreTextField: UITextField!
-    
-    @IBOutlet weak var scheme: UILabel!
-    @IBOutlet weak var schemeTextField: UITextField!
-    
-    var genreValue: String!
-    var schemeValue: String!
-    
-    var genreArray = [String]()
-    let genrePickerView = UIPickerView()
-    
-    var schemeArray = [String]()
-    let schemePickerView = UIPickerView()
-    
+    let closeButton = UIButton()
+    var flg: Bool = false
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setDelegate()
-        self.setData()
-        self.setValue()
-        self.setLayout()
-    }
-    
-    func setDelegate() {
-        genreTextField.delegate = self
-        schemeTextField.delegate = self
         
-        genrePickerView.delegate = self
-        genrePickerView.dataSource = self
-        genreTextField.inputView = genrePickerView
-        
-        schemePickerView.delegate = self
-        schemePickerView.dataSource = self
-        schemeTextField.inputView = schemePickerView
+        self.setlayout()
         
     }
     
-    func setData() {
+    func setlayout() {
+        let userDefaults = UserDefaults.standard
+        let text = UILabel()
+        text.frame = CGRect(x: 20, y: 80, width: self.view.frame.size.width-40, height: self.view.frame.size.height-160)
+        text.text = userDefaults.string(forKey: "text")!
+        text.font = UIFont(name: userDefaults.string(forKey: "font")!,size: CGFloat(NSString(string: userDefaults.string(forKey: "fontSize")!).floatValue))
+        text.textAlignment = NSTextAlignment.center
+        text.numberOfLines = 0
+        text.textColor = UIColor.hex(hexStr:userDefaults.string(forKey: "textColor")!, alpha:1)
+        self.view.addSubview(text)
         
-        self.genreArray = [NSLocalizedString("genreOne", comment: ""),NSLocalizedString("genreTwo", comment: "")]
+        self.view.backgroundColor = UIColor.hex(hexStr:userDefaults.string(forKey: "wallColor")!, alpha:1)
         
-        for (index, _) in genreArray.enumerated() {
-            if genreArray[index] == genreValue {
-                genrePickerView.selectRow(index, inComponent: 0, animated: false)
-            }
-        }
+        let wall = UIButton()
+        wall.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+//        wall.backgroundColor = UIColor.hex(hexStr: "333333", alpha:1)
+        wall.addTarget(self, action: #selector(self.hideButton(sender:)), for:.touchUpInside)
+//        wall.backgroundColor = UIColor.hex(hexStr:userDefaults.string(forKey: "wallColor")!, alpha:1)
+        self.view.addSubview(wall)
         
-        self.schemeArray = [NSLocalizedString("schemeOne", comment: ""),NSLocalizedString("schemeTwo", comment: ""),NSLocalizedString("schemeThree", comment: ""),NSLocalizedString("schemeFour", comment: "")]
+        closeButton.frame = CGRect(x: self.view.frame.size.width-75, y: self.view.frame.size.height-75, width: 60, height: 60)
+        closeButton.backgroundColor = UIColor.hex(hexStr: "333333", alpha:1)
+        closeButton.addTarget(self, action: #selector(self.tappedButton(sender:)), for:.touchUpInside)
+        closeButton.setImage(UIImage(named:"buttonImage"), for: .normal)
+        closeButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        self.view.addSubview(closeButton)
         
-        for (index, _) in schemeArray.enumerated() {
-            if schemeArray[index] == schemeValue {
-                schemePickerView.selectRow(index, inComponent: 0, animated: false)
-            }
-        }
     }
     
-    func setValue() {
-        genreTextField.text = genreValue
-        schemeTextField.text = schemeValue
-    }
-    
-    func setLayout() {
+    func hideButton(sender: AnyObject) {
         
-        self.hiddenScheme()
-        
-        genre.text = NSLocalizedString("genre", comment: "")
-        scheme.text = NSLocalizedString("scheme", comment: "")
-        
-        let toolBar = UIToolbar()
-        toolBar.barStyle = UIBarStyle.default
-        toolBar.isTranslucent = true
-        toolBar.tintColor = UIColor.black
-        let doneButton   = UIBarButtonItem(title: NSLocalizedString("done", comment: ""), style: UIBarButtonItemStyle.done, target: self, action: #selector(self.donePressed))
-        let cancelButton = UIBarButtonItem(title: NSLocalizedString("cancel", comment: ""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.cancelPressed))
-        let spaceButton  = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        toolBar.setItems([cancelButton,spaceButton, doneButton], animated: false)
-        toolBar.isUserInteractionEnabled = true
-        toolBar.sizeToFit()
-        
-        
-        genreTextField.inputAccessoryView = toolBar
-        genreTextField.tintColor = UIColor.clear
-        schemeTextField.inputAccessoryView = toolBar
-        schemeTextField.tintColor = UIColor.clear
-    }
-    
-    func hiddenScheme() {
-        if genreValue == NSLocalizedString("genreTwo", comment: "") {
-            scheme.isHidden = true
-            schemeTextField.isHidden = true
+        if flg {
+            UIView.animate(withDuration: 0.4, animations: {
+                self.closeButton.alpha = 1.0
+                }, completion:nil)
+            flg = false
         } else {
-            scheme.isHidden = false
-            schemeTextField.isHidden = false
+            UIView.animate(withDuration: 0.4, animations: {
+                self.closeButton.alpha = 0.0
+                }, completion:nil)
+            flg = true
         }
-    }
-    
-    func donePressed() {
-        view.endEditing(true)
-        self.setNewValue()
-    }
-    
-    func cancelPressed() {
-        self.setValue()
-        view.endEditing(true)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        self.setNewValue()
-        return true
-    }
-    
-    func setNewValue() {
-        genreValue = genreTextField.text as String!
-        schemeValue = schemeTextField.text as String!
-        self.hiddenScheme()
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
-        if pickerView == genrePickerView {
-            return genreArray.count
-        } else {
-            return schemeArray.count
-        }
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
-        if pickerView == genrePickerView {
-            return genreArray[row]
-        } else {
-            return schemeArray[row]
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        if pickerView == genrePickerView {
-            genreTextField.text = genreArray[row]
-        } else {
-            schemeTextField.text = schemeArray[row]
-        }
-    }
-    
-    @IBAction func tapClose(_ sender: AnyObject) {
-        dismiss(animated: true, completion: {
-            self.delegate.partsModalFinished(genre: self.genreTextField.text!,scheme :self.schemeTextField.text!)
-        })
+    func tappedButton(sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 

@@ -12,11 +12,16 @@
 "defaultFont" = "HelveticaNeue";
 "defaultBackgroundColor" = "ffffff";
 
+"inputText" = "テキストを入力";
+"inputColorCode" = "カラーコードを入力";
+
 "text" = "テキスト";
 "textColor" = "テキストカラー";
 "fontSize" = "フォントサイズ";
 "font" = "フォント";
 "wallColor" = "ウォールカラー";
+
+"fontLabel" = "なんて日だ";
 
 "genre" = "ジャンル";
 "scheme" = "テーマ";
@@ -27,7 +32,8 @@
 "schemeOne" = "ウェブセーフカラー";
 "schemeTwo" = "フラットカラー";
 "schemeThree" = "マテリアルカラー";
-"schemeFour" = "日本の伝統色";
+
+"fontSchemeOne" = "iOS システムフォント";
 
 "select" = "選択";
 "input" = "入力";
@@ -39,3 +45,8 @@
 
 "firstTabTitle" = "フォント";
 "secondTabTitle" = "パーツ";
+
+"kindColor" = "カラー";
+"kindFont" = "フォント";
+
+

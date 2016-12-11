@@ -1,15 +1,15 @@
 //
-//  FontUpgradeViewController.swift
+//  IntroViewController.swift
 //  GUITool
 //
-//  Created by yamagishi kensuke on 11/27/16.
+//  Created by yamagishi kensuke on 12/12/16.
 //  Copyright © 2016 kensuke yamagishi. All rights reserved.
 //
 
 import UIKit
 
-class FontUpgradeViewController: UIViewController,UIScrollViewDelegate {
-    
+class IntroViewController: UIViewController,UIScrollViewDelegate {
+
     let scrollView = UIScrollView()
     let pageControl = UIPageControl()
     var imageArray = [String]()
@@ -18,8 +18,6 @@ class FontUpgradeViewController: UIViewController,UIScrollViewDelegate {
         super.viewDidLoad()
         
         self.setLayout()
-        
-        
     }
     
     func setLayout() {
@@ -78,5 +76,5 @@ class FontUpgradeViewController: UIViewController,UIScrollViewDelegate {
         super.didReceiveMemoryWarning()
         
     }
-    
+
 }

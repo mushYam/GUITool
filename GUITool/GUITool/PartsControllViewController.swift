@@ -8,33 +8,38 @@
 
 import UIKit
 
-class PartsControllViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,PartsModalDelegate {
+class PartsControllViewController: InheritViewController,UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate {
     
     var fontKindArray = [String]()
+    
+    let tableView = UITableView()
+
+    var webColorArray = [] as NSArray
+    var flatColorArray = [] as NSArray
+    var materialColorArray = [] as NSArray
+    
+    var copyLabel: String! = ""
+    
+    var fontArray = [String]()
+    var colorArray = [String]()
+    
+    var kindArray = [String]()
+    let kindPickerView = UIPickerView()
+    var contentsArray = [String]()
+    let contentsPickerView = UIPickerView()
     
     var orgGenreValue: String!
     var orgSchemeValue: String!
     
-    let tableView = UITableView()
-    let listModalButton = UIButton()
+    let kindTextField = UITextField()
+    let contentsTextField = UITextField()
     
-    var webColorArray = [] as NSArray
-    var flatColorArray = [] as NSArray
-    var materialColorArray = [] as NSArray
-    var jaTraditionalColorArray = [] as NSArray
-    
-    var copyLabel: String! = ""
+    var flg: ObjCBool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setInitialValue()
         self.setListData()
         self.setInitialLayout()
-    }
-    
-    func setInitialValue() {
-        self.orgGenreValue = NSLocalizedString("genreOne", comment: "")
-        self.orgSchemeValue = NSLocalizedString("schemeOne", comment: "")
     }
     
     func setListData() {
@@ -53,14 +58,10 @@ class PartsControllViewController: UIViewController,UITableViewDelegate,UITableV
         
         materialColorArray = NSArray(contentsOf: bundle.url(forResource: "FlatColor", withExtension: "plist")!)!
         
-        jaTraditionalColorArray = NSArray(contentsOf: bundle.url(forResource: "FlatColor", withExtension: "plist")!)!
-        
-        
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.rowButtonAction(sender:)))
         longPressRecognizer.allowableMovement = 15
         longPressRecognizer.minimumPressDuration = 0.6
         tableView.addGestureRecognizer(longPressRecognizer)
-        
     }
     
     func rowButtonAction(sender : UILongPressGestureRecognizer) {
@@ -100,40 +101,87 @@ class PartsControllViewController: UIViewController,UITableViewDelegate,UITableV
     }
     
     func setInitialLayout() {
+        
+        let borderView = UIView()
+        borderView.frame = CGRect(x: 0, y: 10, width: self.view.frame.size.width, height: 1)
+        borderView.backgroundColor = UIColor.hex(hexStr: "333333", alpha:1)
+        self.view.addSubview(borderView)
+        
+        orgGenreValue = NSLocalizedString("genreOne", comment: "")
+        orgSchemeValue = NSLocalizedString("schemeOne", comment: "")
+        
+        kindArray = [NSLocalizedString("kindColor", comment: ""),NSLocalizedString("kindFont", comment: "")]
+        kindPickerView.selectRow(0, inComponent: 0, animated: false)
+        kindPickerView.delegate = self
+        kindPickerView.dataSource = self
+        
+        colorArray = [NSLocalizedString("schemeOne", comment: ""),NSLocalizedString("schemeTwo", comment: ""),NSLocalizedString("schemeThree", comment: "")]
+        fontArray = [NSLocalizedString("fontSchemeOne", comment: "")]
+        contentsArray = colorArray
+        
+        contentsPickerView.selectRow(0, inComponent: 0, animated: false)
+        contentsPickerView.delegate = self
+        contentsPickerView.dataSource = self
+        
+        let toolBar = UIToolbar()
+        
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = UIColor.black
+        let doneButton   = UIBarButtonItem(title: NSLocalizedString("done", comment: ""), style: UIBarButtonItemStyle.done, target: self, action: #selector(self.donePressed))
+        let cancelButton = UIBarButtonItem(title: NSLocalizedString("cancel", comment: ""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.cancelPressed))
+        let spaceButton  = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        toolBar.setItems([cancelButton,spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        toolBar.sizeToFit()
+        
+        kindTextField.delegate = self
+        kindTextField.inputAccessoryView = toolBar
+        kindTextField.inputView = kindPickerView
+        contentsTextField.delegate = self
+        contentsTextField.tintColor = UIColor.clear
+        contentsTextField.inputAccessoryView = toolBar
+        contentsTextField.inputView = contentsPickerView
+        
+        kindTextField.frame = CGRect(x: 20, y: 20, width: 80, height: 45)
+        kindTextField.text = NSLocalizedString("genreOne", comment: "")
+        kindTextField.placeholder = "######"
+        kindTextField.backgroundColor = UIColor.hex(hexStr: "999999", alpha:1)
+        kindTextField.leftViewMode = .always
+        kindTextField.tintColor = UIColor.clear
+        kindTextField.textAlignment = NSTextAlignment.center
+        kindTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+        self.view.addSubview(kindTextField)
+        
+        contentsTextField.frame = CGRect(x: 110, y: 20, width: self.view.frame.size.width-130, height: 45)
+        contentsTextField.text = NSLocalizedString("schemeOne", comment: "")
+        contentsTextField.placeholder = "######"
+        contentsTextField.backgroundColor = UIColor.hex(hexStr: "999999", alpha:1)
+        contentsTextField.leftViewMode = .always
+        contentsTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+        self.view.addSubview(contentsTextField)
+        
         tableView.delegate = self
         tableView.dataSource = self
         
         tableView.frame = CGRect(
             x: 0,
-            y: 0,
+            y: 80,
             width: self.view.frame.width,
-            height: self.view.frame.height-108
+            height: self.view.frame.height-164
         )
         self.view.addSubview(tableView)
         
-        listModalButton.frame = CGRect(
-            x: self.view.frame.size.width-100,
-            y: self.view.frame.size.height-208,
-            width: 70,
-            height: 70
-        )
-        listModalButton.backgroundColor = UIColor.yellow
-        listModalButton.addTarget(self, action: #selector(self.tappedButton(sender:)), for:.touchUpInside)
-        self.view.addSubview(listModalButton)
+    }
+
+    func donePressed() {
+        view.endEditing(true)
+        self.updateView()
     }
     
-    func tappedButton(sender: AnyObject) {
-        let storyboard: UIStoryboard = UIStoryboard(name: "PartsUpgrade", bundle: nil)
-        let nextView = storyboard.instantiateViewController(withIdentifier: "PartsUpgrade") as! PartsUpgradeViewController
-        nextView.genreValue = orgGenreValue
-        nextView.schemeValue = orgSchemeValue
-        
-        nextView.delegate = self
-        nextView.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        nextView.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        self.present(nextView, animated: true, completion: nil)
+    func cancelPressed() {
+        view.endEditing(true)
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // セルを作る
@@ -146,7 +194,7 @@ class PartsControllViewController: UIViewController,UITableViewDelegate,UITableV
         if orgGenreValue == NSLocalizedString("genreTwo", comment: "") {
             tableView.separatorStyle = .singleLine
             tableView.separatorColor = UIColor.lightGray
-            cell.textLabel?.text = "このフォントは何でしょう"
+            cell.textLabel?.text = NSLocalizedString("fontLabel", comment: "")
             cell.textLabel?.font = UIFont(name: fontKindArray[indexPath.row] as String,size: 20)
             cell.detailTextLabel?.text = fontKindArray[indexPath.row]
         } else {
@@ -181,10 +229,8 @@ class PartsControllViewController: UIViewController,UITableViewDelegate,UITableV
                 return webColorArray.count
             } else if orgSchemeValue == NSLocalizedString("schemeTwo", comment: "") {
                 return flatColorArray.count
-            } else if orgSchemeValue == NSLocalizedString("schemeThree", comment: "") {
-                return materialColorArray.count
             } else {
-                return jaTraditionalColorArray.count
+                return materialColorArray.count
             }
         }
     }
@@ -197,18 +243,85 @@ class PartsControllViewController: UIViewController,UITableViewDelegate,UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
-    
-    func partsModalFinished(genre: String,scheme :String) {
         
-        orgGenreValue = genre
-        orgSchemeValue = scheme
+    func updateView() {
         
-        tableView.reloadData()
+        orgGenreValue = kindTextField.text
+        orgSchemeValue = contentsTextField.text
+        
+        if orgGenreValue == NSLocalizedString("genreOne", comment: "") {
+            contentsArray = colorArray
+        } else {
+            contentsArray = fontArray
+        }
+        
+        if flg.boolValue {
+            tableView.reloadData()
+            flg = false
+        } else {
+            flg = false
+        }
         
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
+    }
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        if pickerView == kindPickerView {
+            return kindArray.count
+        } else {
+            return contentsArray.count
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        if pickerView == kindPickerView {
+            flg = false;
+            return kindArray[row]
+        } else {
+            flg = true;
+            return contentsArray[row]
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        if pickerView == kindPickerView {
+            kindTextField.text = kindArray[row]
+        } else {
+            contentsTextField.text = contentsArray[row]
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+}
 
+extension UIColor {
+    class func hex ( hexStr : String, alpha : CGFloat) -> UIColor {
+        var hexStr = hexStr
+        //        var alpha = alpha
+        hexStr = hexStr.replacingOccurrences(of: "#", with: "") as String
+        let scanner = Scanner(string: hexStr as String)
+        var color: UInt32 = 0
+        if scanner.scanHexInt32(&color) {
+            let r = CGFloat((color & 0xFF0000) >> 16) / 255.0
+            let g = CGFloat((color & 0x00FF00) >> 8) / 255.0
+            let b = CGFloat(color & 0x0000FF) / 255.0
+            return UIColor(red:r,green:g,blue:b,alpha:alpha)
+        } else {
+            return UIColor.darkGray
+        }
     }
 }
