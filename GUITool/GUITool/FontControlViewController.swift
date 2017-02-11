@@ -89,9 +89,11 @@ class FontControlViewController: InheritViewController,UITextFieldDelegate,UIPic
     
     func setLayout() {
         
+        self.view.backgroundColor = UIColor.hex(hexStr: "4D4D4D", alpha:1)
+        
         let borderView = UIView()
         borderView.frame = CGRect(x: 0, y: 10, width: self.view.frame.size.width, height: 1)
-        borderView.backgroundColor = UIColor.hex(hexStr: "333333", alpha:1)
+        borderView.backgroundColor = UIColor.hex(hexStr: "ffffff", alpha:1)
         self.view.addSubview(borderView)
         
         self.text.text = NSLocalizedString("text", comment: "")
@@ -161,7 +163,6 @@ class FontControlViewController: InheritViewController,UITextFieldDelegate,UIPic
         fontKindTextField.backgroundColor = UIColor.hex(hexStr: "999999", alpha:1)
         fontKindTextField.leftViewMode = .always
         fontKindTextField.textAlignment = NSTextAlignment.center
-        fontKindTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         fontKindTextField.returnKeyType = .done
         self.view.addSubview(fontKindTextField)
         
@@ -336,8 +337,6 @@ class FontControlViewController: InheritViewController,UITextFieldDelegate,UIPic
 //                [UIView setAnimationDuration:0.4];
 //                self.transform = CGAffineTransformMakeTranslation(0, y);
 //                [UIView commitAnimations];
-        
-        
     }
 
     override func didReceiveMemoryWarning() {

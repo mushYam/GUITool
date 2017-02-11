@@ -102,9 +102,11 @@ class PartsControllViewController: InheritViewController,UITableViewDelegate,UIT
     
     func setInitialLayout() {
         
+        self.view.backgroundColor = UIColor.hex(hexStr: "4D4D4D", alpha:1)
+        
         let borderView = UIView()
         borderView.frame = CGRect(x: 0, y: 10, width: self.view.frame.size.width, height: 1)
-        borderView.backgroundColor = UIColor.hex(hexStr: "333333", alpha:1)
+        borderView.backgroundColor = UIColor.hex(hexStr: "ffffff", alpha:1)
         self.view.addSubview(borderView)
         
         orgGenreValue = NSLocalizedString("genreOne", comment: "")
@@ -150,7 +152,6 @@ class PartsControllViewController: InheritViewController,UITableViewDelegate,UIT
         kindTextField.leftViewMode = .always
         kindTextField.tintColor = UIColor.clear
         kindTextField.textAlignment = NSTextAlignment.center
-        kindTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         self.view.addSubview(kindTextField)
         
         contentsTextField.frame = CGRect(x: 110, y: 20, width: self.view.frame.size.width-130, height: 45)

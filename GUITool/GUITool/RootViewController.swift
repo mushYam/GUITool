@@ -82,9 +82,8 @@ class RootViewController: UIViewController {
         let storyboard: UIStoryboard = UIStoryboard(name: "Intro", bundle: nil)
         let nextView = storyboard.instantiateViewController(withIdentifier: "Intro") as! IntroViewController
         self.present(nextView, animated: false, completion: nil)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor.hex(hexStr: "4D4D4D", alpha:1)
         
         let options = PagingMenuOptions()
         let pagingMenuController = PagingMenuController(options: options)
@@ -118,6 +117,13 @@ class RootViewController: UIViewController {
         viewButton.setImage(UIImage(named:"buttonImage"), for: .normal)
         viewButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
         self.view.addSubview(viewButton)
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        
         
     }
     
